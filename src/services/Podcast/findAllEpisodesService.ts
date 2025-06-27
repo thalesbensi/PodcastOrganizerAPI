@@ -1,4 +1,4 @@
-import {repositoryPodcast} from "../repositories/PodcastRepository";
+import {repositoryPodcast} from "../../repositories/PodcastRepository";
 
 
 export const serviceListEpisodesService = async () => {
