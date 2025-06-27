@@ -1,12 +1,15 @@
 import * as http from "http";
 import {IncomingMessage, ServerResponse} from "node:http";
-import {findAllEpisodes} from './controllers/PodcastController'
+import {findAllEpisodes, findByName} from './controllers/PodcastController'
 
 
 const server = http.createServer(
     async (req:IncomingMessage, res:http.ServerResponse) => {
-        if (req.method === "GET") {
+        if (req.method === "GET" && req.url === "api/list") {
             await findAllEpisodes(req,res);
+        }
+        if (req.method === "GET" && req.url === "api/episodes") {
+            await findByName(req, res)
         }
     }
 );
